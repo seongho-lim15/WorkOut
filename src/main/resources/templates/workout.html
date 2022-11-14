@@ -9,11 +9,9 @@
         <table>
         	<tr th:each="num : ${#numbers.sequence(1,5)}">
         		
-        	<th:block> 
         		<td th:each="day : ${list}">
         			<p th:if="${ day != 0 }">day</p>
         		<td>
-        	</th:block>
         	
         	</tr>
         
