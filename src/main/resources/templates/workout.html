@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="container">
+        <div>
+            <h1>운동 날짜</h1>
+        </div>
+        
+        <table>
+        	<tr th:each="num : ${#numbers.sequence(1,5)}">
+        		
+        		<th:block th:each="day : ${list}">
+        			<p th:if="${ day != 0 }">
+        				<span th:text="${day}">
+        			</p>
+        		<th:block>
+        	
+        	</tr>
+        
+        </table>
+    </div> <!-- /container -->
+</body>
+</html>
