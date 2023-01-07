@@ -72,7 +72,8 @@ public class DayOfCalendar {
     return dayOfWeek; 
   } 
 
-  public static List prn(int year, int month) { 
+  public static List prn(int year, int month) {
+
     List<Integer> list = new ArrayList<Integer>();
     
     //시작 요일 

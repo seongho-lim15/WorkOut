@@ -14,9 +14,7 @@ public class WorkOutController {
 	@GetMapping("workout")
 	public String workOut(Model model) {
 		
-		DayOfCalendar DOC = new DayOfCalendar();
-		
-		List<Integer>list = DOC.prn(2022, 11);
+		List<Integer> list = DayOfCalendar.prn(2023, 1);
 		
 		model.addAttribute("list",list);
 		
