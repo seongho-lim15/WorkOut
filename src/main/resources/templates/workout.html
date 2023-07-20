@@ -1,28 +1,44 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="eng">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<title>운동 일정</title>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+	<script type="text/javascript" th:src="@{/js/popup.js}"></script>
+</head>
 <body>
     <div class="container">
         <div>
-            <h1>운동 날짜</h1>
+            <h1>운동 일정</h1>
         </div>
-        
+
         <table>
-        	<tr th:each="num : ${#numbers.sequence(1,5)}">
-        		
-        		<th:block th:each="day : ${list}">
-        			<th:block th:if="${ day != 0}">
-        				<td th:text="${day}">
-        			<th:block>
-        			
-        			<th:block th:unless="${day == 0}">
-						<td th:text="${day}">
-        			<th:block>
-        		<th:block>
-        	
-        	</tr>
-        
-        </table>
+			<tbody class="test">
+				<h2 th:text="${nowDate.year}+'-'+${nowDate.month>10?nowDate.month:'0'+nowDate.month}"></h2>
+				<th:block th:each="day,dayState : ${list}">
+
+					<th:block th:if="${dayState.index %7 ==0}">
+						<tr>
+					</th:block>
+
+					<td th:if="${day!=0}" >
+						<button th:onclick="'popup({day: ' + ${day} + ', year: ' + ${nowDate.year} + ', month : ' + ${nowDate.month} +' })'" th:text="${day}"></button>
+<!--						<button th:attr="onclick='popup(\'' + ${day} + '\', \'' + ${nowDate} + '\')'" th:text="${day}"></button>-->
+
+						<!--						<button th:onclick="popup([[${day}]])" th:text="${day}"></button>-->
+					</td>
+
+					<td th:if="${day==0}"> </td>
+
+					<th:block th:if="${dayState.index %7 ==6}">
+						</tr>
+					</th:block>
+
+				</th:block>
+			</tbody>
+		</table>
     </div> <!-- /container -->
+
 	<a th:href="@{/}">메인으로</a>
 </body>
 </html>

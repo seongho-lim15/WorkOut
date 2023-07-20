@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>운동 내용 입력</title>
+</head>
+<body>
+    <h2>운동 내용 입력</h2>
+    <form>
+        <div>
+            <label for="exercise">운동 내용:</label>
+        </div>
+        <textarea id="exercise" name="exercise" required style="width: 300px; height: 150px;"></textarea>
+        <div class="btn">
+            <button type="submit">확인</button>
+            <button type="button" onclick="window.history.back()">취소</button>
+        </div>
+    </form>
+</body>
+</html>
+
+<script th:inline="javascript">
+    // form 태그 변수에 주소 지정
+    const form = document.querySelector('form');
+
+    // Submit 했을 때 작동하는 이벤트
+    form.addEventListener('submit',submitTest);
+
+    // 가져온 날짜 데이터 세팅
+    const javaDate = JSON.parse([[${date}]]);
+
+    // Submit 했을 때 작동하는 코드
+    function submitTest(e){
+        e.preventDefault();
+        // form 의 데이터를 받아온다.
+        const payload = new FormData(form);
+
+        fetch('save-exercise', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                date: javaDate,
+                exercise : payload.get('exercise'),
+            }),
+        }).then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            console.log('response.body',data)
+        }).catch((error)=>{
+            console.log('error',error)
+        });
+    }
+
+
+
+</script>
