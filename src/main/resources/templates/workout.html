@@ -15,7 +15,7 @@
         <table>
 			<tbody class="test">
 				<h2 th:text="${nowDate.year}+'-'+${nowDate.month>10?nowDate.month:'0'+nowDate.month}"></h2>
-				<th:block th:each="day,dayState : ${list}">
+				<th:block th:each="day,dayState : ${dayCalendar}">
 
 					<th:block th:if="${dayState.index %7 ==0}">
 						<tr>
@@ -23,9 +23,6 @@
 
 					<td th:if="${day!=0}" >
 						<button th:onclick="'popup({day: ' + ${day} + ', year: ' + ${nowDate.year} + ', month : ' + ${nowDate.month} +' })'" th:text="${day}"></button>
-<!--						<button th:attr="onclick='popup(\'' + ${day} + '\', \'' + ${nowDate} + '\')'" th:text="${day}"></button>-->
-
-						<!--						<button th:onclick="popup([[${day}]])" th:text="${day}"></button>-->
 					</td>
 
 					<td th:if="${day==0}"> </td>

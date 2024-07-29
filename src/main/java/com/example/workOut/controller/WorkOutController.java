@@ -1,17 +1,9 @@
 package com.example.workOut.controller;
 
-import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.logging.Logger;
-
-import com.google.gson.Gson;
-import org.apache.logging.log4j.LogManager;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +15,15 @@ import com.example.workOut.domain.DayOfCalendar;
 @RequestMapping("/workout")
 public class WorkOutController {
 
+	/**
+	 * 운동일정 화면
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/")
 	public String workOut(Model model) {
 
-		DayOfCalendar dc = new DayOfCalendar();
+		DayOfCalendar dayCalendar = new DayOfCalendar();
 
 		// 현재 날짜 가져오기
 		LocalDate now = LocalDate.now();
@@ -37,9 +34,9 @@ public class WorkOutController {
 		nowDate.put("year", year);
 		nowDate.put("month", month);
 
-		List<Integer> list = dc.prn(year, month);
+		List<Integer> list = dayCalendar.getMonthDays(year, month);
 
-		model.addAttribute("list", list);
+		model.addAttribute("dayCalendar", list);
 		model.addAttribute("nowDate", nowDate);
 
 		return "workout";

@@ -15,7 +15,7 @@ public class WorkOutControllerTest {
 
         DayOfCalendar dc = new DayOfCalendar();
 
-        List<Integer> list = dc.prn(2023, 2);
+        List<Integer> list = dc.getMonthDays(2023, 2);
         System.out.println("list = " + list);
     }
 }

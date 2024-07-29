@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //달력 만들기 
-//요일계산 -> year년 month월을 주면, year년 month월 1일의 요일 -> 요일만큼 공백 -> 7개씩 새로운 줄 
+//요일계산 -> year 년 month 월을 주면, year년 month월 1일의 요일 -> 요일만큼 공백 -> 7개씩 새로운 줄
 
 public class DayOfCalendar {
 
@@ -60,7 +60,7 @@ public class DayOfCalendar {
   } 
 
   // 년, 월을 입력하면 해당 월의 날짜를 리스트에 담아 반환한다.
-  public List<Integer> prn(int year, int month) {
+  public List<Integer> getMonthDays(int year, int month) {
 
     List<Integer> list = new ArrayList<Integer>();
     
