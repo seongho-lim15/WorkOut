@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>운동일지</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript" th:src="@{/js/popup.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div th:replace="fragments/header::header"></div>
+        <div th:replace="fragments/leftmenu::leftmenu"></div>
+        <div layout:fragment="content"></div>
+        <div th:replace="fragments/footer::footer"></div>
+    </div>
+</body>
+</html>

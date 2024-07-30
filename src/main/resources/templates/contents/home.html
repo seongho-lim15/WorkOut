@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/layout}"
+        lang="ko">
+<body>
+    <div layout:fragment="content">
+            <h1>운동 사이트</h1>
+            <p>
+                <a th:href="@{/workout/}">운동 날짜</a>
+            </p>
+    </div>
+</body>
+</html>

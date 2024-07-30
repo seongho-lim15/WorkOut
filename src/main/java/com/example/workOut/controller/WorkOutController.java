@@ -39,7 +39,7 @@ public class WorkOutController {
 		model.addAttribute("dayCalendar", list);
 		model.addAttribute("nowDate", nowDate);
 
-		return "workout";
+		return "contents/workout";
 	}
 	// 팝업 요청 시
 	@GetMapping("/input")
@@ -55,7 +55,7 @@ public class WorkOutController {
 //		System.out.println("jsonDate = " + jsonDate);
 		// 받아온 날짜 데이터들을 date map 에 넣어서 팝업 화면에 응답으로 보냄
 		model.addAttribute("date",date);
-		return "workoutPopup";
+		return "contents/workoutPopup";
 	}
 
 	@PostMapping ("/save-exercise")
