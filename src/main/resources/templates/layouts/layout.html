@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      lang="en">
+      lang="en"
+      class="h-100">
 <head>
     <meta charset="UTF-8">
     <title>운동일지</title>
@@ -10,12 +11,16 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
 </head>
 
-<body>
-    <div class="wrapper">
-        <div th:replace="fragments/header::header"></div>
-        <div th:replace="fragments/leftmenu::leftmenu"></div>
-        <div layout:fragment="content"></div>
-        <div th:replace="fragments/footer::footer"></div>
-    </div>
+<body class="d-flex flex-column h-100 vsc-initialized">
+    <th:block th:replace="fragments/header::header"></th:block>
+
+    <main class="flex-shrink-0" style="padding-top: 60px;">
+        <div class="container">
+            <th:block layout:fragment="content"></th:block>
+        </div>
+    </main>
+    <th:block th:replace="fragments/sidebar::sidebar"></th:block>
+
+    <th:block th:replace="fragments/footer::footer"></th:block>
 </body>
 </html>
