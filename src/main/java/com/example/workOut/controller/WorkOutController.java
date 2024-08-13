@@ -41,6 +41,24 @@ public class WorkOutController {
 
 		return "contents/workout";
 	}
+
+	@GetMapping("/{year}/{month}")
+	public String workOut(@PathVariable("month") int month, @PathVariable("year") int year, Model model) {
+
+		DayOfCalendar dayCalendar = new DayOfCalendar();
+
+		Map<String, Object> nowDate = new HashMap<>();
+		nowDate.put("year", year);
+		nowDate.put("month", month);
+
+		List<Integer> list = dayCalendar.getMonthDays(year, month);
+
+		model.addAttribute("dayCalendar", list);
+		model.addAttribute("nowDate", nowDate);
+
+		return "contents/workout";
+	}
+
 	// 팝업 요청 시
 	@GetMapping("/input")
 	public String workoutPopUp(@RequestParam("date") String date,
@@ -54,7 +72,7 @@ public class WorkOutController {
 //
 //		System.out.println("jsonDate = " + jsonDate);
 		// 받아온 날짜 데이터들을 date map 에 넣어서 팝업 화면에 응답으로 보냄
-		model.addAttribute("date",date);
+		model.addAttribute("date", date);
 		return "contents/workoutPopup";
 	}
 
