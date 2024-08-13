@@ -2,25 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       lang="en"
-      class="h-100">
+>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>운동일지</title>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script type="text/javascript" th:src="@{/js/popup.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
 </head>
 
-<body class="d-flex flex-column h-100 vsc-initialized">
-    <th:block th:replace="fragments/header::header"></th:block>
+<body>
+    <div class="d-flex flex-column vh-100">
+        <!-- 헤더 -->
+        <th:block th:replace="fragments/header::header"></th:block>
 
-    <main class="flex-shrink-0" style="padding-top: 60px;">
-        <div class="container">
-            <th:block layout:fragment="content"></th:block>
-        </div>
-    </main>
-    <th:block th:replace="fragments/sidebar::sidebar"></th:block>
+        <main class="flex-grow-1 d-flex" style="padding-top: 60px">
+            <!-- 본문 -->
+            <div class="card flex-grow-1 flex-column align-items-center">
+                <th:block layout:fragment="content"></th:block>
+            </div>
+        </main><!-- /.col-lg-4 -->
 
-    <th:block th:replace="fragments/footer::footer"></th:block>
+        <!-- 푸터 -->
+        <th:block th:replace="fragments/footer::footer"></th:block>
+    </div>
 </body>
 </html>

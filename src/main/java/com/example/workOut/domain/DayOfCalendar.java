@@ -64,7 +64,7 @@ public class DayOfCalendar {
 
     List<Integer> list = new ArrayList<Integer>();
     
-    //시작 요일 
+    //시작 요일
     int start = DayOfCalendar.getDayOfWeek(year, month); 
 
     //마지막 날짜 

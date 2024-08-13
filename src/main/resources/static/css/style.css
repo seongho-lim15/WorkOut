@@ -1,9 +1,5 @@
-.test{
-    width:100%;
-    height: 200px;
-}
-
-a{
-    text-decoration: none;
-    color: black;
+.btn-round-5 {
+    border-radius: 5px;
+    height: 30px;
+    margin: 0 1px
 }
